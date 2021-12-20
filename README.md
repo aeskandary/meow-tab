@@ -1,6 +1,10 @@
 # Meow Tab
 Replaces chrome://newtab with a page displaying the date &amp; time, along with a randomized cat fact and image from two separate APIs. 
 
+# Example
+![Example 1](https://i.imgur.com/iqEONPU.png)
+![Example 2](https://i.imgur.com/jQr7yBv.png)
+
 # Usage
 Coming soon to the Chrome Extension Store.
 
