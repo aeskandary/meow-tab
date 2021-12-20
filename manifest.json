@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Meow Tab",
+  "version": "1.0",
+  "author": "Ali Eskandary",
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  },
+  "permissions": [
+    "storage",
+    "https://api.hackernoon.com/",
+    "https://cat-fact.herokuapp.com/",
+    "https://cataas.com/"
+  ],
+  "icons": {
+    "16": "catIcon_16x16.png",
+    "128": "catIcon_128x128.png"
+  }
+}

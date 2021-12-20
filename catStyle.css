@@ -1,0 +1,32 @@
+body{
+    background-color: #0A131A;
+}
+#infobar{
+    background-color: #254A6A;
+}
+#topTile{
+    background-color: #593E73;
+}
+#bottomTile{
+    background-color: #593E73;
+}
+#searchFunction{
+    text-align: center;
+    width: 100%;
+}
+#searchButton{
+    width: 100%;
+    background-color: #593E73;
+    font-size:1.3em;
+}
+#factArea{
+    height:50%;
+}
+#catImage{
+    opacity:60%;
+}
+#footerArea{
+    padding-bottom:1%;
+    background-color: #0A131A;
+    color: #666666;
+}
