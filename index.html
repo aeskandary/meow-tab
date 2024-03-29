@@ -6,40 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Meow Tab</title>
     <link rel="icon" type="image/x-icon" href="catFavicon.ico">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="catStyle.css"> </head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="catStyle.css">
+</head>
 
 <body>
     <section class="hero is-small is-primary" id="infobar">
         <div class="hero-body">
-            <h1 class="subtitle" id="time">
-          ​
-      </h1>
-            <p class="title" id="date"> ​ </p>
+            <h1 class="title" id="date"></h1>
+            <h1 class="subtitle" id="time"></h1>
+            <button id="am-pm">AM/PM</button>
         </div>
     </section>
     <div class="columns" id="catArea">
-        <div class="column" id="infoArea">
+        <div class="column" id="info-area">
             <div class="tile is-parent is-vertical">
-                <article class="tile is-child notification is-primary" id="topTile">
-                    <form action="https://www.google.com/search" id="searchFunction" class="searchform" method="get" name="searchform" target="_blank">
-                        <input autocomplete="on" id="searchInput" class="form-control search input" name="q" placeholder="Search Google" required="required" type="text">
-                        <button class="button is-primary" id="searchButton" type="submit">Search Meow</button>
+                <article class="tile is-child notification is-primary" id="top-tile">
+                    <form action="https://www.google.com/search" id="search-function" class="search-form" method="get"
+                        name="search-form" target="_blank">
+                        <input autocomplete="on" id="search-input" class="form-control search input" name="q"
+                            placeholder="Search Google" required="required" type="text">
+                        <button class="button is-primary" id="search-button" type="submit">Search Meow</button>
                     </form>
                 </article>
-                <article class="tile is-child notification is-primary" id="bottomTile">
-                    <p class="is-size-3 has-text-centered" id="catFact"> ​ </p>
+                <article class="tile is-child notification is-primary" id="bottom-tile">
+                    <p class="is-size-3 has-text-centered" id="cat-fact"></p>
                 </article>
             </div>
         </div>
-        <div class="column" id="imageArea">
-            <figure class="image is-square"> <img id="catImage" src="https://cataas.com/cat"></image>
+        <div class="column" id="image-area">
+            <figure class="image is-square">
+                <img id="cat-image" src="https://cataas.com/cat"></image>
             </figure>
         </div>
     </div>
-    <footer class="footer" id="footerArea">
+    <footer class="footer" id="footer-area">
         <div class="content has-text-centered">
-            <p> By <a href="https://www.aeskandary.com">A. Eskandary</a>. [<a href="https://github.com/aeskandary/meow-tab">Source Code</a>] [<a href="https://phillypaws.org/donate/">Donate to Philly Paws</a>] </p>
+            <p> By <a href="https://www.aeskandary.com">A. Eskandary</a>. [<a
+                    href="https://github.com/aeskandary/meow-tab">Source Code</a>] [<a
+                    href="https://phillypaws.org/donate/">Donate to Philly Paws</a>] </p>
         </div>
     </footer>
 </body>

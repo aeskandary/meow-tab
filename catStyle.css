@@ -4,28 +4,28 @@ body{
 #infobar{
     background-color: #254A6A;
 }
-#topTile{
+#top-tile{
     background-color: #593E73;
 }
-#bottomTile{
+#bottom-tile{
     background-color: #593E73;
 }
-#searchFunction{
+#search-function{
     text-align: center;
     width: 100%;
 }
-#searchButton{
+#search-button{
     width: 100%;
     background-color: #593E73;
     font-size:1.3em;
 }
-#factArea{
+#fact-area{
     height:50%;
 }
-#catImage{
+#cat-image{
     opacity:60%;
 }
-#footerArea{
+#footer-area{
     padding-bottom:1%;
     background-color: #0A131A;
     color: #666666;

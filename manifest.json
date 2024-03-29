@@ -8,8 +8,7 @@
   },
   "permissions": [
     "storage",
-    "https://api.hackernoon.com/",
-    "https://cat-fact.herokuapp.com/",
+    "https://catfact.ninja/",
     "https://cataas.com/"
   ],
   "icons": {
