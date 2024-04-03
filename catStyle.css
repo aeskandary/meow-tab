@@ -1,32 +1,74 @@
-body{
-    background-color: #0A131A;
+:root {
+    --main-bg-color: #0A131A;
+    --infobar-color: #254A6A;
+    --tile-color: #593E73;
+    --search-button-color: #593E73;
+    --footer-color: #0A131A;
+    --footer-text-color: #666666;
+    --date-color: white;
+    --time-color: white;
 }
-#infobar{
-    background-color: #254A6A;
+
+body {
+    background-color: var(--main-bg-color);
 }
-#top-tile{
-    background-color: #593E73;
+
+#infobar {
+    background-color: var(--infobar-color);
 }
-#bottom-tile{
-    background-color: #593E73;
+
+#top-tile,
+#bottom-tile,
+#search-button {
+    background-color: var(--tile-color);
 }
-#search-function{
+
+#search-function {
     text-align: center;
     width: 100%;
 }
-#search-button{
+
+#search-button {
     width: 100%;
-    background-color: #593E73;
-    font-size:1.3em;
+    font-size: 1.3em;
 }
-#fact-area{
-    height:50%;
+
+#fact-area {
+    height: 50%;
 }
-#cat-image{
-    opacity:60%;
+
+#cat-image {
+    opacity: 60%;
 }
-#footer-area{
-    padding-bottom:1%;
-    background-color: #0A131A;
-    color: #666666;
+
+#footer-area {
+    padding-bottom: 1%;
+    background-color: var(--footer-color);
+    color: var(--footer-text-color);
 }
+
+#date {
+    color: var(--date-color);
+}
+
+#time {
+    color: var(--time-color);
+}
+
+#am-pm {
+    /* display: none; */
+    background-color: var(--tile-color);
+    color: white;
+}
+
+#settings {
+    width: 2.5em;
+}
+
+#settings-gear {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1%;
+}
+
+#settings-area {}

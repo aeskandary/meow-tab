@@ -13,9 +13,18 @@
 <body>
     <section class="hero is-small is-primary" id="infobar">
         <div class="hero-body">
-            <h1 class="title" id="date"></h1>
-            <h1 class="subtitle" id="time"></h1>
-            <button id="am-pm">AM/PM</button>
+            <div class="columns">
+                <div class="column is-9">
+                    <h1 class="title" id="date"></h1>
+                    <h1 class="subtitle" id="time"></h1>
+                </div>
+                <div class="column is-2" id="settings-area">
+                    <button class="button" id="am-pm">AM/PM</button>
+                </div>
+                <div class="column is-1" id="settings-gear">
+                    <img src="settings.svg" id="settings" alt="Settings"></img>
+                </div>
+            </div>
         </div>
     </section>
     <div class="columns" id="catArea">

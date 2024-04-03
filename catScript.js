@@ -124,11 +124,12 @@ async function displayFact() {
 
 //when the page loads, load the user settings
 document.addEventListener("DOMContentLoaded", function () {
+    var settingsGear = document.getElementById("settings");
     //toggling am/pm
-    var button = document.getElementById("am-pm");
-    if (button) {
-        //when the button is clicked, load the current setting, switch it, and save
-        button.addEventListener("click", function () {
+    var ampm = document.getElementById("am-pm");
+    if (ampm) {
+        //when the ampm button is clicked, load the current setting, switch it, and save
+        ampm.addEventListener("click", function () {
             loadSettings("meridiem", function (val) {
                 //if val = 1, set 0, else set 1
                 var newVal = val === "1" ? "0" : "1";
@@ -139,6 +140,17 @@ document.addEventListener("DOMContentLoaded", function () {
     // loadSettings('myKey', function(val) {
     //   console.log('Loaded val: ' + val);
     // });
+
+    //displaying settings when the settings gear is clicked
+    if (settingsGear) {
+        settingsGear.addEventListener("click", function () {
+            if (ampm.style.display === "none") {
+                ampm.style.display = "block"; // or "inline-block"
+            } else {
+                ampm.style.display = "none";
+            }
+        });
+    }
 });
 
 //update time every 100ms
