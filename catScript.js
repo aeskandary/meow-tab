@@ -122,26 +122,10 @@ async function displayFact() {
     document.getElementById("cat-fact").innerHTML = data.fact;
 }
 
-//when the page loads, load the user settings
+//loading user settings upon page load
 document.addEventListener("DOMContentLoaded", function () {
-    var settingsGear = document.getElementById("settings");
-    //toggling am/pm
-    var ampm = document.getElementById("am-pm");
-    if (ampm) {
-        //when the ampm button is clicked, load the current setting, switch it, and save
-        ampm.addEventListener("click", function () {
-            loadSettings("meridiem", function (val) {
-                //if val = 1, set 0, else set 1
-                var newVal = val === "1" ? "0" : "1";
-                saveSettings("meridiem", newVal);
-            });
-        });
-    }
-    // loadSettings('myKey', function(val) {
-    //   console.log('Loaded val: ' + val);
-    // });
-
     //displaying settings when the settings gear is clicked
+    var settingsGear = document.getElementById("settings");
     if (settingsGear) {
         settingsGear.addEventListener("click", function () {
             if (ampm.style.display === "none") {
@@ -149,6 +133,27 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 ampm.style.display = "none";
             }
+        });
+    }
+
+    //toggling 12-hour/24-hour time
+    var ampm = document.getElementById("am-pm");
+    var meridiemVal;
+    if (ampm) {
+        //loading current setting to display initial text
+        loadSettings("meridiem", function (val) {
+            meridiemVal = val;
+            ampm.textContent = val === "1" ? "12-hour time" : "24-hour time";
+        });
+        //when the ampm button is clicked, load the current setting, switch it, and save
+        ampm.addEventListener("click", function () {
+            //if meridiemVal = 1, set 0, else set 1
+            var newVal = meridiemVal === "1" ? "0" : "1";
+            saveSettings("meridiem", newVal);
+            //updating button text
+            ampm.textContent = newVal === "1" ? "12-hour time" : "24-hour time";
+            //updating meridiemVal for next click
+            meridiemVal = newVal;
         });
     }
 });

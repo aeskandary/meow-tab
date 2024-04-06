@@ -7,6 +7,9 @@
     --footer-text-color: #666666;
     --date-color: white;
     --time-color: white;
+    --settings-button-color: #593E73;
+    --settings-button-hover-color: #d6a9ff;
+    --settings-button-text-color: white;
 }
 
 body {
@@ -55,14 +58,30 @@ body {
     color: var(--time-color);
 }
 
-#am-pm {
+.settings-button {
     /* display: none; */
-    background-color: var(--tile-color);
-    color: white;
+    background-color: var(--settings-button-color);
+    color: var(--settings-button-text-color);
+    transition: background-color 0.3s ease;
+}
+
+.settings-button:hover {
+    color: var(--settings-button-text-color);
+    background-color: var(--settings-button-hover-color);
+}
+
+.settings-button:active, .settings-button:focus {
+    color: var(--settings-button-text-color);
+    box-shadow: 0 !important;
+    outline: 0!important;
 }
 
 #settings {
     width: 2.5em;
+}
+
+#settings:hover {
+    cursor: pointer;
 }
 
 #settings-gear {
