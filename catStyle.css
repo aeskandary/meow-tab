@@ -10,14 +10,19 @@
     --settings-button-color: #593E73;
     --settings-button-hover-color: #d6a9ff;
     --settings-button-text-color: white;
+    --slider-color: #593E73;
 }
 
 body {
     background-color: var(--main-bg-color);
+    height: 100vh;
+    overflow: hidden;
+    
 }
 
 #infobar {
     background-color: var(--infobar-color);
+    height: 10vh !important;
 }
 
 #top-tile,
@@ -36,6 +41,10 @@ body {
     font-size: 1.3em;
 }
 
+#cat-area {
+    height: 90vh;
+}
+
 #fact-area {
     height: 50%;
 }
@@ -45,6 +54,7 @@ body {
 }
 
 #footer-area {
+    padding-top: 1%;
     padding-bottom: 1%;
     background-color: var(--footer-color);
     color: var(--footer-text-color);
@@ -90,4 +100,42 @@ body {
     padding-right: 1%;
 }
 
-#settings-area {}
+#settings-area {
+}
+
+#opacity-slider {
+    display: none;
+    width: 100%;
+    background: var(--slider-color) !important;
+    background-color: var(--slider-color) !important;
+    cursor: pointer;
+    appearance: none;
+
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.fade-in {
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.fade-out {
+    animation: fadeOut 0.5s;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(180deg); }
+}
+
+.spin {
+    animation: spin 0.5s linear;
+}
