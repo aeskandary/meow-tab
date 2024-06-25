@@ -19,11 +19,6 @@
                     <h1 class="subtitle" id="time"></h1>
                 </div>
                 <div class="column is-3">
-                    <div id="settings-area" style="display:none">
-                        <button class="button settings-button" id="am-pm"></button>
-                        <button class="button settings-button" id="brightness">Brightness</button>
-                        <button class="button settings-button" id="paradigmShift">Dog Mode</button>
-                    </div>
                 </div>
                 <div class="column is-1" id="settings-gear">
                     <img src="settings.svg" id="settings" alt="Settings"></img>
@@ -31,6 +26,15 @@
             </div>
         </div>
     </section>
+    <div id="settings-modal" style="display:none">
+        <div id="settings-modal-content">
+            <span class="close-button">&times;</span>
+            <button class="button settings-button" id="am-pm"></button>
+            <button class="button settings-button" id="brightness">Brightness</button>
+            <button class="button settings-button" id="paradigmShift"></button>
+            <button class="button settings-button" id="theme"></button>
+        </div>
+    </div>
     <div class="columns" id="cat-area">
         <div class="column" id="info-area">
             <div class="tile is-parent is-vertical">

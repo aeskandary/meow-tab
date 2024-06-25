@@ -12,10 +12,19 @@ function saveSettings(key, val) {
 
 //load settings
 function loadSettings() {
-    let keys = ["paradigm", "meridiem", "opacity"];
+    let keys = ["paradigm", "meridiem", "opacity", "theme"];
     return new Promise((resolve, reject) => {
         chrome.storage.sync.get(keys, function(result) {
             settings = result;
+            console.log(settings);
+            //if paradigm is not set yet, default to cat mode (0)
+            if (settings.paradigm === undefined) {
+                settings.paradigm = "0";
+            }
+            //if theme is not set yet, default to cat mode (0)
+            if (settings.theme === undefined) {
+                settings.theme = "dark";
+            }
             resolve();
         });
     });
@@ -89,6 +98,23 @@ function initializeSettingsControls() {
             displayCat();
             displayFact();
             checkTitle();
+        });
+    }
+
+    //toggling between light/dark mode
+    var themeToggle = document.getElementById("theme");
+    if (themeToggle) {
+        //setting initial text
+        themeToggle.textContent = settings.theme === "dark" ? "Light Mode" : "Dark Mode";
+        //event listener for theme toggle
+        themeToggle.addEventListener("click", function() {
+            //toggling between light/dark
+            var newVal = settings.theme === "dark" ? "light" : "dark";
+            toggleSetting("theme", newVal);
+            //updating button text
+            themeToggle.textContent = newVal === "dark" ? "Light Mode" : "Dark Mode";
+            //updating theme
+            toggleTheme();
         });
     }
 }
@@ -202,6 +228,17 @@ function displayCat() {
             .then(data => catImage.src = data.message)
             .catch(error => console.error('Error:', error));
     }
+    //error event listener to check if the image fails to load
+    catImage.onerror = function() {
+        //check settings.paradigm and load an appropriate default image
+        if (settings.paradigm == "0") {
+            //default cat image
+            // this.src = '';
+        } else {
+            //default dog image
+            // this.src = '';
+        }
+    };
 }
 
 async function displayFact() {
@@ -231,6 +268,38 @@ function checkTitle() {
     }
 }
 
+//toggling between light and dark mode
+function toggleTheme() {
+    let root = document.documentElement;
+    if (settings.theme === "dark") {
+        root.style.setProperty('--main-bg-color', '#0A131A');
+        root.style.setProperty('--infobar-color', '#254A6A');
+        root.style.setProperty('--tile-color', '#593E73');
+        root.style.setProperty('--search-button-color', '#593E73');
+        root.style.setProperty('--footer-color', '#0A131A');
+        root.style.setProperty('--footer-text-color', '#666666');
+        root.style.setProperty('--date-color', 'white');
+        root.style.setProperty('--time-color', 'white');
+        root.style.setProperty('--settings-button-color', '#593E73');
+        root.style.setProperty('--settings-button-hover-color', '#d6a9ff');
+        root.style.setProperty('--settings-button-text-color', 'white');
+        root.style.setProperty('--slider-color', '#593E73');
+    } else {
+        root.style.setProperty('--main-bg-color', '#F5F5F5');
+        root.style.setProperty('--infobar-color', '#A8DADC');
+        root.style.setProperty('--tile-color', '#457B9D');
+        root.style.setProperty('--search-button-color', '#1D3557');
+        root.style.setProperty('--footer-color', '#F5F5F5');
+        root.style.setProperty('--footer-text-color', '#1D3557');
+        root.style.setProperty('--date-color', '#1D3557');
+        root.style.setProperty('--time-color', '#1D3557');
+        root.style.setProperty('--settings-button-color', '#1D3557');
+        root.style.setProperty('--settings-button-hover-color', '#A8DADC');
+        root.style.setProperty('--settings-button-text-color', '#F5F5F5');
+        root.style.setProperty('--slider-color', '#1D3557');
+    }
+}
+
 //loading user settings upon page load
 document.addEventListener("DOMContentLoaded", function() {
     loadSettings().then(function() {
@@ -238,35 +307,47 @@ document.addEventListener("DOMContentLoaded", function() {
         displayDate();
         displayCat();
         displayFact();
+        toggleTheme();
         initializeSettingsControls();
     });
 
-    //displaying settings when the settings gear is clicked
+    //displaying settings modal when the settings gear is clicked
     var settingsGear = document.getElementById("settings");
-    var settingsArea = document.getElementById("settings-area");
+    var modal = document.getElementById("settings-modal");
     if (settingsGear) {
         settingsGear.addEventListener("click", function() {
             settingsGear.classList.add("spin");
             setTimeout(function() {
                 settingsGear.classList.remove("spin");
             }, 500);
-            if (settingsArea.style.display === "none") {
-                settingsArea.style.display = "block";
-                settingsArea.classList.add("fade-in");
+            if (modal.style.display === "none") {
+                modal.style.display = "block";
+                modal.classList.add("fade-in");
                 setTimeout(function() {
-                    settingsArea.classList.remove("fade-in");
+                    modal.classList.remove("fade-in");
                 }, 500);
             } else {
-                settingsArea.classList.add("fade-out");
+                modal.classList.add("fade-out");
                 setTimeout(function() {
-                    settingsArea.style.display = "none";
-                    settingsArea.classList.remove("fade-out");
+                    modal.style.display = "none";
+                    modal.classList.remove("fade-out");
                 }, 500);
             }
         });
     }
 
+    //closing modal when close button is clicked
+    var span = document.getElementsByClassName("close-button")[0];
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    //closing modal when user clicks outside of it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
     //update time every 100ms
     window.setInterval(displayDate, 100);
-
 });
