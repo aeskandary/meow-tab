@@ -1,6 +1,14 @@
 # Meow Tab
 Replaces chrome://newtab with a page displaying the date &amp; time, along with a randomized cat fact and image from two separate APIs. 
 
+# Settings
+Accessing the settings panel (via the gear at the top right) allows the user to modify various settings, including:
+
+* Time Format - switch between 12-hour and 24-hour time formats.
+* Brightness - adjust the brightness of the image.
+* Dog/Cat Mode - toggle between dog and cat mode, replacing the randomized fact/image with your preferred fuzzy friend.
+* Light/Dark Mode - toggle between a light and dark color palette.
+
 # Example
 ![Example 1](https://i.imgur.com/iqEONPU.png)
 ![Example 2](https://i.imgur.com/jQr7yBv.png)
@@ -15,9 +23,11 @@ As the cat facts are randomized and sourced from a website that took user-submit
 
 # Acknowledgments
 Thank you to:
-* [Cat Facts API.](https://alexwohlbruck.github.io/cat-facts/docs/)
-* [Cats As A Service API](https://cataas.com/#/), for the cat images.
-* [The Bulma CSS framework.](https://bulma.io/)
+* [Cat Facts API](https://catfact.ninja/), for cat facts.
+* [Cats As A Service API](https://cataas.com/#/), for cat images.
+* [Dog API - Kinduff](https://dogapi.dog/), for dog facts.
+* [Dog API](https://dog.ceo/dog-api/), for dog images.
+* [The Bulma CSS framework](https://bulma.io/), used to style the page.
 * [Colormind](http://colormind.io/image/), used to help decide on a color palette.
 * [Philly Paws](https://phillypaws.org/donate/), for working to save Philadelphia's stray cats (and dogs!)
 
